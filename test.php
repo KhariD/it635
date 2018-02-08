@@ -1,3 +1,6 @@
-<div id="!usr">
-<bin>
-<php></php>
+#!/usr/bin/php
+<?php
+
+    echo "Hello sir";
+
+?>
