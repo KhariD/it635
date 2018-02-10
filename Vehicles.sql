@@ -6,7 +6,7 @@ create table vehicle
     make varchar(255),
     model varchar(255),
     year int(11),
-    miles int(11,),
+    miles int(11),
     type varchar(255),
     color varchar(255),
     trans varchar(255),
