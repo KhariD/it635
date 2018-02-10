@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
 
-    echo "Hello sir";
+    echo "Hello sir".PHP_EOL;
 
 ?>
