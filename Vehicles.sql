@@ -9,5 +9,6 @@ create table vehicle
     miles int(11,),
     type varchar(255),
     color varchar(255),
-    trans varchar(255)
+    trans varchar(255),
+    price int(11)
 );
