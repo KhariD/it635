@@ -44,6 +44,23 @@ public function addVehicleRecord($vin, $make, $model, $year, $miles, $type, $col
     }
 }
 
+public function validateUser($username, $password)
+{
+    $u = $this->db->real_escape_string($username);
+    $p = $this->db->real_escape_string($password);
+
+    $q = "select * from users where username = '$u';";
+
+    while ($row = $result->fetch_assoc())
+    {
+        if ($row["pass"] == $p)
+        {
+            return true;            
+        }
+    }
+    return false;
+}
+
 }
 
 ?>
