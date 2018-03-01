@@ -7,7 +7,7 @@ private $db;
 
 public function __construct($database)
 {
-    $this->db = new mysqli("localhost", "root", "monkey", $database);
+    $this->db = new mysqli("localhost", "ubuntu", "monkey", $database);
     if ($this->db->connect_errno != 0)
     {
         echo "error connecting to database: ".$this->db->connect_error.PHP_EOL;
@@ -21,6 +21,23 @@ public function __destruct()
     {
         $this->db->close();
     }
+}
+
+public function validateUser($username, $password)
+{
+    $u = $this->db->real_escape_string($username);
+    $p = $this->db->real_escape_string($password);
+
+    $q = "select * from users where username = '$u';";
+
+    while ($row = $q->fetch_assoc())
+    {
+        if ($row["pass"] == $p)
+        {
+            return true;            
+        }
+    }
+    return false;
 }
 
 public function addVehicleRecord($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
@@ -44,22 +61,34 @@ public function addVehicleRecord($vin, $make, $model, $year, $miles, $type, $col
     }
 }
 
-public function validateUser($username, $password)
+public function listVehicles();
 {
-    $u = $this->db->real_escape_string($username);
-    $p = $this->db->real_escape_string($password);
+    //list vehicles based on automatic, manual or both
+    $sql = "select * from vehicle;";
 
-    $q = "select * from users where username = '$u';";
+    $sqlResponse = $this->db->query($sql);
+    
+    $response = array();
 
-    while ($row = $result->fetch_assoc())
+    while ($row = $sqlResponse->fetch_assoc())
     {
-        if ($row["pass"] == $p)
-        {
-            return true;            
-        }
+        $response = $row;
     }
-    return false;
+
+    return $response;
 }
+
+public function showVehicle();
+{
+
+}
+
+public function addVechicle();
+{
+
+}
+
+
 
 }
 
