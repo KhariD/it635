@@ -78,9 +78,15 @@ public function listVehicles();
     return $response;
 }
 
-public function showVehicle();
+public function showVehicle($vin);
 {
+    $sql = "select * from vehicle where vin = '$vin';";
 
+    $sqlResponse = $this->db->query($sql);
+
+    $response = $sqlResponse->fetch_assoc();
+
+    return $response;
 }
 
 public function addVechicle();
