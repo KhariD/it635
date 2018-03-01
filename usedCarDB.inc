@@ -40,7 +40,7 @@ public function validateUser($username, $password)
     return false;
 }
 
-public function addVehicleRecord($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
+public function addVehicl($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
 {
     $v = $this->db->real_escape_string($vin);
     $m = $this->db->real_escape_string($make);
@@ -88,13 +88,6 @@ public function showVehicle($vin);
 
     return $response;
 }
-
-public function addVechicle();
-{
-
-}
-
-
 
 }
 
