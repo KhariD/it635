@@ -119,7 +119,7 @@ class CarAccess
         }
     }
 
-    public function getSales();
+    public function getAllSales()
     {
         $sql = "select * from sales";
         
@@ -139,7 +139,39 @@ class CarAccess
         }
 
         return $response;
+    }
 
+    public function getSales($user)
+    {
+        $sql = "select * from sales where user = '$user';";
+        
+        $sqlResponse = $this->db->query($sql);
+
+        $response = $sqlResponse->fetch_assoc();
+
+        echo "executing SQL statement:\n".$sql."\n";
+        if (!$this->db->query($sql))
+        {
+            return "No sales records found from sales rep: ".$user.PHP_EOL; 
+        }
+
+        return $response;
+    }
+
+    public function setSale($vin, $user, $date)
+    {
+        $v = $this->db->real_escape_string($vin);
+        $u = $this->db->real_escape_string($user);
+        $d = $this->db->real_escape_string($date);
+        
+
+        $sql = "insert into reps (vin, user, date) values ('$v', '$u', '$d');";
+
+        echo "executing SQL statement:".PHP_EOL.$sql.PHP_EOL;
+        if (!$this->db->query($sql))
+        {
+            echo "failed to book sale ".PHP_EOL;
+        }
     }
 
 
