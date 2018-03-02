@@ -40,7 +40,7 @@ class CarAccess
         return false;
     }
 
-    public function addVehicl($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
+    public function addVehicle($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
     {   
         $v = $this->db->real_escape_string($vin);
         $m = $this->db->real_escape_string($make);
