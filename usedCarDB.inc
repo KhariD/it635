@@ -40,7 +40,7 @@ class CarAccess
         return false;
     }
 
-    public function addVehicle($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
+    public function setVehicle($vin, $make, $model, $year, $miles, $type, $color, $trans, $price)
     {   
         $v = $this->db->real_escape_string($vin);
         $m = $this->db->real_escape_string($make);
@@ -61,7 +61,7 @@ class CarAccess
         }
     }
 
-    public function listVehicles()
+    public function getVehicles()
     {
         //list vehicles based on automatic, manual or both
         $sql = "select * from vehicle;";
@@ -78,7 +78,7 @@ class CarAccess
         echo "executing SQL statement:\n".$sql."\n";
         if (!$this->db->query($sql))
         {
-            return "failed to insert list vehicles".PHP_EOL; 
+            return "failed to show list of vehicles".PHP_EOL; 
         }
 
         return $response;
@@ -101,7 +101,7 @@ class CarAccess
         return $response;
     }
 
-    public function createRep($user, $fname, $lname, $phone, $com)
+    public function setRep($user, $fname, $lname, $phone, $com)
     {
         
         $u = $this->db->real_escape_string($user);
@@ -117,6 +117,28 @@ class CarAccess
         {
             echo "failed to insert record for ".$user.PHP_EOL;
         }
+    }
+
+    public function getSales();
+    {
+        $sql = "select * from sales";
+        
+        $sqlResponse = $this->db->query($sql);
+        
+        $response = array();
+
+        while ($row = $sqlResponse->fetch_assoc())
+        {
+            $response = $row;
+        }
+
+        echo "executing SQL statement:\n".$sql."\n";
+        if (!$this->db->query($sql))
+        {
+            return "failed to show sales".PHP_EOL; 
+        }
+
+        return $response;
 
     }
 
