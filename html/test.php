@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$user = 'ubuntu';
+$user = 'root';
 $pass = 'monkey';
 $db = 'Used_Cars';
 $conn = new mysqli($host,$user,$pass,$db);
