@@ -1,35 +1,34 @@
 <?php
-include 'usedCarDB.inc'
+/* User login process, checks if user exists and password is correct */
 
-echo "HELLLLOOOOOO";
-if (!isset($_POST))
-{
-	$msg = "NO POST MESSAGE SET";
-	echo json_encode($msg);
-	exit(0);
+// Escape email to protect against SQL injections
+$user = $mysqli->escape_string($_POST['user']);
+$sql = "select * from users where user = '$user';";
+$result = $mysqli->query($sql);
+
+if ( $result->num_rows == 0 ){ // User doesn't exist
+    echo "user doesn't exist".PHP_EOL;
+    
 }
+else { // User exists
+    $user = $result->fetch_assoc();
 
-echo "HELLLOOO";
+    if ($_POST['password'] == $user['password']) 
+    {   
+        $_SESSION['user'] = $user['user'];
+        $_SESSION['fname'] = $user['fname'];
+        $_SESSION['lname'] = $user['lname'];
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['commision'] = $user['com'];
+        
+        vardump($user);
+        // This is how we'll know the user is logged in
+        $_SESSION['logged_in'] = true;
 
-$usr = $_POST['usr'];
-$pass = $_POST['pass'];
-
-if (validateRep($user, $pass))
-{
-    if (determineUser($user))
-    {
-        return "rep";
+        header("location: sales.php");
     }
-    else
-    {
-        return "owner";
+    else {
+        echo "You have entered wrong password, try again!".PHP_EOL;
     }
 }
-
-
-
-
-
-
-
 ?>
