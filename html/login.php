@@ -20,7 +20,7 @@ if ( $result->num_rows == 0 )
 else { // User exists
     $user = $result->fetch_assoc();
 
-    if ($_POST['password'] == $user['password']) 
+    if ($_POST['password'] == $user['pass']) 
     {   
         $_SESSION['user'] = $user['user'];
         $_SESSION['fname'] = $user['fname'];
