@@ -23,7 +23,37 @@ class CarAccess
         }
     }
 
-    public function validateUser($username, $password)
+    public function validateRep($username, $password)
+    {
+        $u = $this->db->real_escape_string($username);
+        $p = $this->db->real_escape_string($password);
+
+        //check if user is rep
+
+        $q = "select * from users where user = '$u';";
+
+        $result = mysql_query($q);
+        if (mysql_num_rows($result) > 0)
+        {
+            $q = "select * from reps where user = '$u';";
+
+            while ($row = $q->fetch_assoc())
+            {
+                if ($row["pass"] == $p)
+                {
+                    return true;            
+                }
+            }
+            return false;
+
+        }
+
+        
+
+        
+    }
+
+    public function validateOwner($username, $password)
     {
         $u = $this->db->real_escape_string($username);
         $p = $this->db->real_escape_string($password);
