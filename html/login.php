@@ -39,7 +39,9 @@ else { // User exists
         echo "Commission %: ".$rep['com']."<br>";
 
         $_SESSION['user'] = $rep['user'];
+        echo "Session 1<br>";
         $_SESSION['fname'] = $rep['fname'];
+        echo "Session 2<br>";
         $_SESSION['lname'] = $rep['lname'];
         $_SESSION['phone'] = $rep['phone'];
         $_SESSION['commision'] = $rep['com'];
