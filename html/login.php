@@ -45,7 +45,7 @@ else { // User exists
             $_SESSION['fname'] = $rep['fname'];
             $_SESSION['lname'] = $rep['lname'];
             $_SESSION['phone'] = $rep['phone'];
-            $_SESSION['commision'] = $rep['com'];
+            $_SESSION['commission'] = $rep['com'];
             
             var_dump($user);
             // This is how we'll know the user is logged in
@@ -70,7 +70,7 @@ else { // User exists
             $_SESSION['fname'] = $rep['fname'];
             $_SESSION['lname'] = $rep['lname'];
             $_SESSION['phone'] = $rep['phone'];
-            $_SESSION['commision'] = $rep['com'];
+            $_SESSION['commission'] = $rep['com'];
             
             var_dump($user);
             // This is how we'll know the user is logged in
