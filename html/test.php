@@ -3,9 +3,14 @@ $host = 'localhost';
 $user = 'ubuntu';
 $pass = 'monkey';
 $db = 'Used_Cars';
-$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+$conn = new mysqli($host,$user,$pass,$db);
+
+if($conn->connect_error)
+{
+    die("Connection failed: " . $conn->connect_error);
+}
 
 $sql = "select * from reps";
-$result = $mysqli->query($sql);
+$result = $conn->query($sql);
 var_dump($result);
 ?>
