@@ -14,7 +14,7 @@ $sql = "select * from reps";
 $result = $conn->query($sql);
 
 while($row = $result->fetch_assoc()) {
-    var_dump($row);
+    echo $row['user']
 }
 
 var_dump($result);
