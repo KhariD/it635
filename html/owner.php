@@ -14,9 +14,9 @@ else {
     echo "successfully logged in!!! :))<br>";
 
     $user = $_SESSION['user'];
-    $fname = $_SESSION['first_name'];
-    $lname = $_SESSION['last_name'];
-    $phone = $_SESSION['email'];
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $phone = $_SESSION['phone'];
     $com = $_SESSION['commission'];
 
     echo "User: ".$user."<br>";
