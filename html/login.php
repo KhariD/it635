@@ -8,6 +8,8 @@ if (!isset($_POST))
 	exit(0);
 }
 
+echo "HELLLOOO";
+
 $usr = $_POST['usr'];
 $pass = $_POST['pass'];
 
