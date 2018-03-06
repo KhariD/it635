@@ -18,7 +18,7 @@ if ( $result->num_rows == 0 )
     
 }
 else { // User exists
-    $sql = "select * from usr where user = '$user';";
+    $sql = "select * from user where user = '$user';";
     $result = $conn->query($sql);
     
     $userArray = $result->fetch_assoc();
