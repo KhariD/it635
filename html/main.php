@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <div class="form">
     <div id="login">   
         <h1>Welcome Back!</h1>
-        <form action="index.php" method="post" autocomplete="off">
+        <form action="main.php" method="post" autocomplete="off">
             <label>
                 Username<span class="req">*</span>
             </label>
