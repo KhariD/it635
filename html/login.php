@@ -1,11 +1,13 @@
 <?php
-echo "hello!";
+echo "hello!".PHP_EOL;
 /* User login process, checks if user exists and password is correct */
 
 // Escape email to protect against SQL injections
 $user = $mysqli->escape_string($_POST['user']);
 $sql = "select * from users where user = '$user';";
 $result = $mysqli->query($sql);
+
+var_dump($result);
 
 if ( $result->num_rows == 0 )
 { // User doesn't exist
