@@ -27,28 +27,58 @@ else { // User exists
 
     if ($_POST['password'] == $userArray['pass']) 
     {   
+    
         $sql = "select * from reps where user = '$user';";
         $result = $conn->query($sql);
+
+        if ($result->num_rows > 0)
+        {
+            $rep = $result->fetch_assoc();
+
+            echo "User: ".$rep['user']."<br>";
+            echo "First: ".$rep['fname']."<br>";
+            echo "Last: ".$rep['lname']."<br>";
+            echo "Phone #: ".$rep['phone']."<br>";
+            echo "Commission %: ".$rep['com']."<br>";
+
+            $_SESSION['user'] = $rep['user'];
+            $_SESSION['fname'] = $rep['fname'];
+            $_SESSION['lname'] = $rep['lname'];
+            $_SESSION['phone'] = $rep['phone'];
+            $_SESSION['commision'] = $rep['com'];
+            
+            var_dump($user);
+            // This is how we'll know the user is logged in
+            $_SESSION['logged_in'] = true;
+
+            header("location: sales.php");
+        }
+        else
+        {
+            $sql = "select * from owner where user = '$user';";
+            $result = $conn->query($sql);
+            
+            $rep = $result->fetch_assoc();
+            
+            echo "User: ".$rep['user']."<br>";
+            echo "First: ".$rep['fname']."<br>";
+            echo "Last: ".$rep['lname']."<br>";
+            echo "Phone #: ".$rep['phone']."<br>";
+            echo "Commission %: ".$rep['com']."<br>";
+    
+            $_SESSION['user'] = $rep['user'];
+            $_SESSION['fname'] = $rep['fname'];
+            $_SESSION['lname'] = $rep['lname'];
+            $_SESSION['phone'] = $rep['phone'];
+            $_SESSION['commision'] = $rep['com'];
+            
+            var_dump($user);
+            // This is how we'll know the user is logged in
+            $_SESSION['logged_in'] = true;
+    
+            header("location: owner.php");
+        }
         
-        $rep = $result->fetch_assoc();
-
-        echo "User: ".$rep['user']."<br>";
-        echo "First: ".$rep['fname']."<br>";
-        echo "Last: ".$rep['lname']."<br>";
-        echo "Phone #: ".$rep['phone']."<br>";
-        echo "Commission %: ".$rep['com']."<br>";
-
-        $_SESSION['user'] = $rep['user'];
-        $_SESSION['fname'] = $rep['fname'];
-        $_SESSION['lname'] = $rep['lname'];
-        $_SESSION['phone'] = $rep['phone'];
-        $_SESSION['commision'] = $rep['com'];
-        
-        var_dump($user);
-        // This is how we'll know the user is logged in
-        $_SESSION['logged_in'] = true;
-
-        header("location: sales.php");
     }
     else {
         echo "You have entered wrong password, try again!".PHP_EOL;
