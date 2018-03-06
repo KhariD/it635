@@ -18,22 +18,25 @@ if ( $result->num_rows == 0 )
     
 }
 else { // User exists
-    $user = $result->fetch_assoc();
+    $sql = "select * from reps where user = '$user';";
+    $result = $conn->query($sql);
+    
+    $rep = $result->fetch_assoc();
     echo "<br>user exists<br>";
 
-    if ($_POST['password'] == $user['pass']) 
+    if ($_POST['password'] == $rep['pass']) 
     {   
-        echo "User: ".$user['user']."<br>";
-        echo "First: ".$user['fname']."<br>";
-        echo "Last: ".$user['lname']."<br>";
-        echo "Phone #: ".$user['phone']."<br>";
-        echo "Commission %: ".$user['com']."<br>";
-        
-        $_SESSION['user'] = $user['user'];
-        $_SESSION['fname'] = $user['fname'];
-        $_SESSION['lname'] = $user['lname'];
-        $_SESSION['phone'] = $user['phone'];
-        $_SESSION['commision'] = $user['com'];
+        echo "User: ".$rep['user']."<br>";
+        echo "First: ".$rep['fname']."<br>";
+        echo "Last: ".$rep['lname']."<br>";
+        echo "Phone #: ".$rep['phone']."<br>";
+        echo "Commission %: ".$rep['com']."<br>";
+
+        $_SESSION['user'] = $rep['user'];
+        $_SESSION['fname'] = $rep['fname'];
+        $_SESSION['lname'] = $rep['lname'];
+        $_SESSION['phone'] = $rep['phone'];
+        $_SESSION['commision'] = $rep['com'];
         
         vardump($user);
         // This is how we'll know the user is logged in
