@@ -1,6 +1,7 @@
 <?php
 include 'usedCarDB.inc'
 
+echo "HELLLLOOOOOO";
 if (!isset($_POST))
 {
 	$msg = "NO POST MESSAGE SET";
