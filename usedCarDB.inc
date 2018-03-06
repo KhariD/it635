@@ -28,29 +28,39 @@ class CarAccess
         $u = $this->db->real_escape_string($username);
         $p = $this->db->real_escape_string($password);
 
-        //check if user is rep
-
         $q = "select * from users where user = '$u';";
+
+        while ($row = $q->fetch_assoc())
+        {
+            if ($row["pass"] == $p)
+            {
+                return true;            
+            }
+        }
+        return false;
+        } 
+    }
+
+    public function determineUser($user);
+    {
+        //Assumes user exists
+        //Determines if user is owner or sales representative
+        // T if rep
+        // F if owner
+        $u = $this->db->real_escape_string($user);
+
+        $q = "Select * from reps where user = '$u';";
 
         $result = mysql_query($q);
         if (mysql_num_rows($result) > 0)
         {
-            $q = "select * from reps where user = '$u';";
-
-            while ($row = $q->fetch_assoc())
-            {
-                if ($row["pass"] == $p)
-                {
-                    return true;            
-                }
-            }
+            return true;
+        }
+        else
+        {
             return false;
-
         }
 
-        
-
-        
     }
 
     public function validateOwner($username, $password)
