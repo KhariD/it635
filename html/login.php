@@ -4,8 +4,11 @@ echo "hello!".PHP_EOL;
 
 // Escape email to protect against SQL injections
 $user = $mysqli->escape_string($_POST['user']);
+echo "1";
 $sql = "select * from users where user = '$user';";
+echo "2";
 $result = $mysqli->query($sql);
+echo "3";
 
 var_dump($result);
 
