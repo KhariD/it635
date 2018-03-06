@@ -1,8 +1,11 @@
 <?php
-echo "post<p>";
-var_dump($_POST);
-echo "get<p>";
-var_dump($_GET);
-var_dump($_REQUEST);
-echo "Hi there :))";
+$host = 'localhost';
+$user = 'ubuntu';
+$pass = 'monkey';
+$db = 'Used_Cars';
+$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+
+$sql = "select * from reps";
+$result = $mysqli->query($sql);
+var_dump($result);
 ?>
