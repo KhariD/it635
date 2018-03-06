@@ -19,7 +19,7 @@ if ( $result->num_rows == 0 )
 }
 else { // User exists
     $user = $result->fetch_assoc();
-    echo "<br>user exists<br>"
+    echo "<br>user exists<br>";
 
     if ($_POST['password'] == $user['pass']) 
     {   
