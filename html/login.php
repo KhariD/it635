@@ -18,14 +18,19 @@ if ( $result->num_rows == 0 )
     
 }
 else { // User exists
-    $sql = "select * from reps where user = '$user';";
+    $sql = "select * from usr where user = '$user';";
     $result = $conn->query($sql);
     
-    $rep = $result->fetch_assoc();
+    $userArray = $result->fetch_assoc();
     echo "<br>user exists<br>";
 
-    if ($_POST['password'] == $rep['pass']) 
+    if ($_POST['password'] == $userArray['pass']) 
     {   
+        $sql = "select * from reps where user = '$user';";
+        $result = $conn->query($sql);
+        
+        $rep = $result->fetch_assoc();
+
         echo "User: ".$rep['user']."<br>";
         echo "First: ".$rep['fname']."<br>";
         echo "Last: ".$rep['lname']."<br>";
