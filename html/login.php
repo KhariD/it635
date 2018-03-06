@@ -23,7 +23,12 @@ else { // User exists
 
     if ($_POST['password'] == $user['pass']) 
     {   
-
+        echo "User: ".$user['user']."<br>";
+        echo "First: ".$user['fname']."<br>";
+        echo "Last: ".$user['lname']."<br>";
+        echo "Phone #: ".$user['phone']."<br>";
+        echo "Commission %: ".$user['com']."<br>";
+        
         $_SESSION['user'] = $user['user'];
         $_SESSION['fname'] = $user['fname'];
         $_SESSION['lname'] = $user['lname'];
