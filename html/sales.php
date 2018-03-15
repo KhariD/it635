@@ -117,40 +117,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //display vehicles
 
         echo "Showing Vehicles";
+        $vin = $_POST['showVeh'];
         
-        
-        $sql = "select * from vehicle";
+        $sql = "select * from vehicle were vin = '$vin';";
         $result = $conn->query($sql);
 
-        echo "<table border='1'>
-        <tr>
-        <th>Vin</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Miles</th>
-        <th>Type</th>
-        <th>Color</th>
-        <th>Trans</th>
-        <th>Price</th>
-        </tr>";
 
-        while($row = $result->fetch_assoc())
+        if ( $result->num_rows == 0 )
         {
-            echo "<tr>";
-            echo "<td>" . $row['vin'] . "</td>";
-            echo "<td>" . $row['make'] . "</td>";
-            echo "<td>" . $row['model'] . "</td>";
-            echo "<td>" . $row['year'] . "</td>";
-            echo "<td>" . $row['miles'] . "</td>";
-            echo "<td>" . $row['type'] . "</td>";
-            echo "<td>" . $row['color'] . "</td>";
-            echo "<td>" . $row['trans'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
-            echo "</tr>";
+            echo "<br>Vehicle doesn't exist<br>";
+            
         }
+        else
+        {
+            echo "<table border='1'>
+            <tr>
+            <th>Vin</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Miles</th>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Trans</th>
+            <th>Price</th>
+            </tr>";
 
-        echo "</table>";
+            while($row = $result->fetch_assoc())
+            {
+                echo "<tr>";
+                echo "<td>" . $row['vin'] . "</td>";
+                echo "<td>" . $row['make'] . "</td>";
+                echo "<td>" . $row['model'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
+                echo "<td>" . $row['miles'] . "</td>";
+                echo "<td>" . $row['type'] . "</td>";
+                echo "<td>" . $row['color'] . "</td>";
+                echo "<td>" . $row['trans'] . "</td>";
+                echo "<td>" . $row['price'] . "</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
+        }
     }
 }
 ?>
