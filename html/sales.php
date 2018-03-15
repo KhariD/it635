@@ -56,7 +56,7 @@ else
             <th>Price</th>
             </tr>";
 
-            while($row = mysql_fetch_array($result))
+            while($row = $result->fetch_assoc())
             {
                 echo "<tr>";
                 echo "<td>" . $row['vin'] . "</td>";
