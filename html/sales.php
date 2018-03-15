@@ -32,7 +32,7 @@ else
     {
         var_dump($_POST);
         
-        if (isset($_POST['login'])) 
+        if (isset($_POST['showVeh'])) 
         { //user logging in
             var_dump($_POST);
             //display vehicles
