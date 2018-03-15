@@ -27,7 +27,7 @@ else
     echo "Last: ".$lname."<br>";
     echo "Phone #: ".$phone."<br>";
     echo "Commission %: ".$com."<br>";
-/*  
+  
     if ($_SERVER['REQUEST_METHOD'] == 'POST') 
     {
         var_dump($_POST);
@@ -36,6 +36,10 @@ else
         { //user logging in
             var_dump($_POST);
             //display vehicles
+
+            echo "Showing Vehicles";
+            
+            /*
             $sql = "select * from vehicle";
             $result = $conn->query($sql);
 
@@ -51,12 +55,12 @@ else
             <th>Trans</th>
             <th>Price</th>
             </tr>";
-
+            */
             
         
         }
     }
-*/
+
 }
 ?>
 
