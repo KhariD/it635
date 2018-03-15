@@ -33,11 +33,11 @@ else
 <!DOCTYPE html>
 <html>
 <body>
-  <div class="show veh">
+  <div class="veh">
     <div id="veh">   
         <h1>Welcome Back!</h1>
         <form action="sales.php" method="post" autocomplete="off">
-            <button class="button button-block" name="showVeh" />Show Vehicles</button>
+            <button class="button button-block" name="veh" />Show Vehicles</button>
         </form>
     </div><!-- tab-content -->
 </body>
@@ -46,7 +46,7 @@ else
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {   
-    if (isset($_POST['showVeh'])) 
+    if (isset($_POST['veh'])) 
     { 
         //user logging in
         //display vehicles
@@ -89,3 +89,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="showVeh">
+    <div id="veh">   
+        <form action="sales.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                Show Vehicle
+            </label>
+            <br>
+            <input type="text" name="showVeh" placeholder="enter vin"/>
+            <button class="button button-block" name="showButton" />Show Vehicle</button>
+        </form>
+    </div><!-- tab-content -->
+</body>
+</html>
