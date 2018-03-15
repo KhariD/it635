@@ -27,54 +27,6 @@ else
     echo "Last: ".$lname."<br>";
     echo "Phone #: ".$phone."<br>";
     echo "Commission %: ".$com."<br>";
-  
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-    {
-        var_dump($_POST);
-        
-        if (isset($_POST['showVeh'])) 
-        { //user logging in
-            var_dump($_POST);
-            //display vehicles
-
-            echo "Showing Vehicles";
-            
-            
-            $sql = "select * from vehicle";
-            $result = $conn->query($sql);
-
-            echo "<table border='1'>
-            <tr>
-            <th>Vin</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Miles</th>
-            <th>Type</th>
-            <th>Color</th>
-            <th>Trans</th>
-            <th>Price</th>
-            </tr>";
-
-            while($row = $result->fetch_assoc())
-            {
-                echo "<tr>";
-                echo "<td>" . $row['vin'] . "</td>";
-                echo "<td>" . $row['make'] . "</td>";
-                echo "<td>" . $row['model'] . "</td>";
-                echo "<td>" . $row['year'] . "</td>";
-                echo "<td>" . $row['miles'] . "</td>";
-                echo "<td>" . $row['type'] . "</td>";
-                echo "<td>" . $row['color'] . "</td>";
-                echo "<td>" . $row['trans'] . "</td>";
-                echo "<td>" . $row['price'] . "</td>";
-                echo "</tr>";
-            }
-
-            echo "</table>";
-        }
-    }
-
 }
 ?>
 
@@ -95,3 +47,52 @@ else
 
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    var_dump($_POST);
+    
+    if (isset($_POST['showVeh'])) 
+    { //user logging in
+        var_dump($_POST);
+        //display vehicles
+
+        echo "Showing Vehicles";
+        
+        
+        $sql = "select * from vehicle";
+        $result = $conn->query($sql);
+
+        echo "<table border='1'>
+        <tr>
+        <th>Vin</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Miles</th>
+        <th>Type</th>
+        <th>Color</th>
+        <th>Trans</th>
+        <th>Price</th>
+        </tr>";
+
+        while($row = $result->fetch_assoc())
+        {
+            echo "<tr>";
+            echo "<td>" . $row['vin'] . "</td>";
+            echo "<td>" . $row['make'] . "</td>";
+            echo "<td>" . $row['model'] . "</td>";
+            echo "<td>" . $row['year'] . "</td>";
+            echo "<td>" . $row['miles'] . "</td>";
+            echo "<td>" . $row['type'] . "</td>";
+            echo "<td>" . $row['color'] . "</td>";
+            echo "<td>" . $row['trans'] . "</td>";
+            echo "<td>" . $row['price'] . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
+}
+?>
