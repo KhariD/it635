@@ -116,13 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //user logging in
         //display vehicles
 
-        echo "Showing Vehicles";
         $vin = $_POST['showVeh'];
-        echo "<br> vin: ".$vin;
+        
         $sql = "select * from vehicle where vin = '$vin';";
         $result = $conn->query($sql);
-        var_dump($result);
-
+        
         if ($result->num_rows == 0 )
         {
             echo "<br>Vehicle doesn't exist<br>";
