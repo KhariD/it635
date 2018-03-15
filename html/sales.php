@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         echo "<br> vin: ".$vin;
         $sql = "select * from vehicle were vin = '$vin';";
         $result = $conn->query($sql);
-
+        var_dump($result);
 
         if ($result->num_rows == 0 )
         {
