@@ -50,9 +50,7 @@ else
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-    var_dump($_POST);
-    
+{   
     if (isset($_POST['showVeh'])) 
     { //user logging in
         var_dump($_POST);
