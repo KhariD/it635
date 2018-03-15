@@ -39,7 +39,7 @@ else
 
             echo "Showing Vehicles";
             
-            /*
+            
             $sql = "select * from vehicle";
             $result = $conn->query($sql);
 
@@ -55,9 +55,23 @@ else
             <th>Trans</th>
             <th>Price</th>
             </tr>";
-            */
-            
-        
+
+            while($row = mysql_fetch_array($result))
+            {
+                echo "<tr>";
+                echo "<td>" . $row['vin'] . "</td>";
+                echo "<td>" . $row['make'] . "</td>";
+                echo "<td>" . $row['model'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
+                echo "<td>" . $row['miles'] . "</td>";
+                echo "<td>" . $row['type'] . "</td>";
+                echo "<td>" . $row['color'] . "</td>";
+                echo "<td>" . $row['trans'] . "</td>";
+                echo "<td>" . $row['price'] . "</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>"
         }
     }
 
