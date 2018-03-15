@@ -1,4 +1,5 @@
 <?php
+require 'db.php';
 /* Displays user information and some useful messages */
 echo "DEALERSHIP OWNER<BR>";
 session_start();
