@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
         if ($result->num_rows == 0 )
         {
-            echo "<br>Vehicle doesn't exist<br>";
+            echo "Vehicle doesn't exist<br>";
             
         }
         else
