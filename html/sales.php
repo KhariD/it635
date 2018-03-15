@@ -52,8 +52,8 @@ else
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {   
     if (isset($_POST['showVeh'])) 
-    { //user logging in
-        var_dump($_POST);
+    { 
+        //user logging in
         //display vehicles
 
         echo "Showing Vehicles";
