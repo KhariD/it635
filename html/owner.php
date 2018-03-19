@@ -27,13 +27,93 @@ else {
     echo "Commission: ".$com."<br>";
 }
 ?>
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="addR">
+    <div id="addR">
+      <h1>Sales Representative Portal!</h1>   
+        <form action="owner.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                Add New Sales Representative!
+            </label>
+            <br>
+            <input type="user" required name="usr" placeholder="Enter username"/><br>
+            <input type="text" name="fname" placeholder="First name"/><br>
+            <input type="text" name="lname" placeholder="Last name"/><br>
+            <input type="text" name="phone" placeholder="Phone number"/><br>
+            <input type="text" name="com" placeholder="Commission (0.xx)"/><br>
+            <input type="password" required name="pass" placeholder="Enter password"/><br>
+            
+            <button class="button button-block" name="addRep" />Add Representative</button>
+        </form>
+    </div><!-- tab-content -->
+</body>
+</html>
+
+
+<?php
+/*
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{   
+    if (isset($_POST['addVeh'])) 
+    { 
+        $vin = $conn->escape_string($_POST['vin']);
+        $mk = $conn->escape_string($_POST['make']);
+        $md = $conn->escape_string($_POST['model']);
+        $yr = $conn->escape_string($_POST['year']);
+        $mi = $conn->escape_string($_POST['miles']);
+        $ty = $conn->escape_string($_POST['type']);
+        $co = $conn->escape_string($_POST['color']);
+        $tr = $conn->escape_string($_POST['trans']);
+        $pr = $conn->escape_string($_POST['price']);
+
+        //find out if vehicle exists
+        $sql = "select * from vehicle where vin = '$vin';";
+        $result = $conn->query($sql);
+        $result->fetch_assoc();
+
+        if($result->num_rows == 0 )
+        {
+            $sql = "insert into vehicle (vin, make, model, year, miles, type, color, trans, price)
+            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
+
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "<br>Vehicle Added successfully!<br>";
+            }
+            else
+            {
+                echo "<br>Error: ".$sql."<br>".$conn->error;
+            }
+
+            $sql = "insert into unsold (vin, make, model, year, miles, type, color, trans, price)
+            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
+
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "<br>:)<br>";
+            }
+            else
+            {
+                echo "<br>Error: ".$sql."<br>".$conn->error;
+            }
+        }
+        else
+        {
+            echo "<br>This vehicle exists already!<br>";
+        }
+    }
+}
+*/
+?>
 
 <!DOCTYPE html>
 <html>
 <body>
   <div class="add">
     <div id="add">
-      <h1>Sales Representative Portal!</h1>   
         <form action="owner.php" method="post" autocomplete="off">
             <br>
             <label>
