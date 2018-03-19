@@ -27,6 +27,7 @@ else {
     echo "Commission: ".$com."<br>";
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -39,12 +40,12 @@ else {
                 Add New Sales Representative!
             </label>
             <br>
-            <input type="user" required name="usr" placeholder="Enter username"/><br>
-            <input type="text" name="fname" placeholder="First name"/><br>
-            <input type="text" name="lname" placeholder="Last name"/><br>
-            <input type="text" name="phone" placeholder="Phone number"/><br>
-            <input type="text" name="com" placeholder="Commission (0.xx)"/><br>
-            <input type="password" required name="pass" placeholder="Enter password"/><br>
+            Username: <input type="user" required name="usr" placeholder="Enter username"/><br>
+            First Name: <input type="text" name="fname" placeholder="First name"/><br>
+            Last Name: <input type="text" name="lname" placeholder="Last name"/><br>
+            Phone #: <input type="text" name="phone" placeholder="Phone number"/><br>
+            Commission: <input type="text" name="com" placeholder="Commission (0.xx)"/><br>
+            Password: <input type="password" required name="pass" placeholder="Enter password"/><br>
             
             <button class="button button-block" name="addRep" />Add Representative</button>
         </form>
@@ -52,61 +53,67 @@ else {
 </body>
 </html>
 
-
 <?php
-/*
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {   
-    if (isset($_POST['addVeh'])) 
+    if (isset($_POST['addRep'])) 
     { 
-        $vin = $conn->escape_string($_POST['vin']);
-        $mk = $conn->escape_string($_POST['make']);
-        $md = $conn->escape_string($_POST['model']);
-        $yr = $conn->escape_string($_POST['year']);
-        $mi = $conn->escape_string($_POST['miles']);
-        $ty = $conn->escape_string($_POST['type']);
-        $co = $conn->escape_string($_POST['color']);
-        $tr = $conn->escape_string($_POST['trans']);
-        $pr = $conn->escape_string($_POST['price']);
+        $usr = $conn->escape_string($_POST['usr']);
+        $fname = $conn->escape_string($_POST['fname']);
+        $lname = $conn->escape_string($_POST['lname']);
+        $phone = $conn->escape_string($_POST['phone']);
+        $com = $conn->escape_string($_POST['com']);
+        $pass = $conn->escape_string($_POST['pass']);
+        
 
-        //find out if vehicle exists
-        $sql = "select * from vehicle where vin = '$vin';";
+        //find out if rep exists
+        $sql = "select * from users where user = '$usr';";
         $result = $conn->query($sql);
         $result->fetch_assoc();
 
+        $sql2 = "select * from reps where user = '$usr';";
+        $result2 = $conn->query($sql2);
+        $result2->fetch_assoc();
+
         if($result->num_rows == 0 )
         {
-            $sql = "insert into vehicle (vin, make, model, year, miles, type, color, trans, price)
-            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
-
-            if ($conn->query($sql) === TRUE)
+            if($result2->num_rows == 0)
             {
-                echo "<br>Vehicle Added successfully!<br>";
+                $sql = "insert into users (user, pass)
+                values ('$usr', '$pass');";
+
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<br>User added successfully!<br>";
+                }
+                else
+                {
+                    echo "<br>Error: ".$sql."<br>".$conn->error;
+                }
+
+                $sql = "insert into reps (user, fname, lname, phone, com)
+                values ('$usr', '$fname', '$lname', '$phone', '$com');";
+
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<br>Sales representative added successfully!<br>";
+                }
+                else
+                {
+                    echo "<br>Error: ".$sql."<br>".$conn->error;
+                }
             }
             else
             {
-                echo "<br>Error: ".$sql."<br>".$conn->error;
-            }
-
-            $sql = "insert into unsold (vin, make, model, year, miles, type, color, trans, price)
-            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
-
-            if ($conn->query($sql) === TRUE)
-            {
-                echo "<br>:)<br>";
-            }
-            else
-            {
-                echo "<br>Error: ".$sql."<br>".$conn->error;
+                echo "<br>Sales Rep already exists";
             }
         }
         else
         {
-            echo "<br>This vehicle exists already!<br>";
+           echo "<br>User already exists!";
         }
     }
 }
-*/
 ?>
 
 <!DOCTYPE html>
