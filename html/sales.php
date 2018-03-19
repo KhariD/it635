@@ -169,7 +169,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <body>
   <div class="sales">
     <div id="sales">   
-        <h1>Welcome Back!</h1>
         <form action="sales.php" method="post" autocomplete="off">
             <button class="button button-block" name="salesButton" />Show Sales</button>
         </form>
@@ -192,10 +191,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
         if ($result->num_rows == 0 )
         {
-            echo "No sales made yet";
+            echo "<br>No sales made yet<br>";
         }
         else
         {
+            echo "<br>Showing sales made by: <strong>".$fname." ".$lname."!!</strong><br>";
             echo "<table border='1'>
             <tr>
             <th>Date</th>
