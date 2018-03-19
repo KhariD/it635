@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 Show a specific vehicle!
             </label>
             <br>
-            <input type="text" name="showVeh" placeholder="enter vin"/>
+            <input type="text" name="showVeh" placeholder="enter vin"/><br>
             <button class="button button-block" name="showButton" />Show Vehicle</button>
         </form>
     </div><!-- tab-content -->
