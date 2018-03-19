@@ -270,3 +270,60 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     </div><!-- tab-content -->
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{   
+    if (isset($_POST['bookSale'])) 
+    { 
+        $vin = $conn->escape_string($_POST['vin']);
+        $dt = $conn->escape_string($_POST['date']);
+
+        //find out if vehicle exists
+        $sql = "select * from vehicle where vin = '$vin';";
+        $result = $conn->query($sql);
+        $result->fetch_assoc();
+
+        $sql2 = "select * from unsold where vin = '$vin';";
+        $result2 = $conn->query($sql2);
+        $result2->fetch_assoc();
+
+        if($result->num_rows > 0 )
+        {
+            if($result2->num_rows > 0)
+            {
+                $sql = "insert into sold select * from unsold where vin = '$vin';";
+
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<br>..1";
+                }
+                else
+                {
+                    echo "<br>Error: ".$sql."<br>".$conn->error;
+                }
+                
+                $sql = "insert into sales (vin, user, date)
+                values ('$vin', '$user', '$dt');";
+                
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<br>The sale has been booked successfully!<br>";
+                }
+                else
+                {
+                    echo "<br>Error: ".$sql."<br>".$conn->error;
+                }
+            }
+            else
+            {
+                echo "<br>Vehicle already sold!<br>";
+            }
+        }
+        else
+        {
+            echo "<br>This vehicle does not exist!<br>";
+        }
+    }
+}
+?>
