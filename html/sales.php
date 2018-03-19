@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $sql = "select * from vehicle where vin = '".$row1['vin']."';";
                 $res = $conn->query($sql);
 
-                $row = $res->fetch_assoc()
+                $row = $res->fetch_assoc();
 
                 $commission = $com * $row['price'];
 
