@@ -240,5 +240,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
     }
 }
-
 ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="book">
+    <div id="book">   
+        <form action="sales.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                Book a sale!
+            </label>
+            <br>
+            <input type="text" name="vin" placeholder="Enter vin"/><br>
+            <input type="text" name="date" placeholder="Enter date"/><br>
+            <button class="button button-block" name="bookSale" />Sell Vehicle</button>
+        </form>
+    </div><!-- tab-content -->
+</body>
+</html>
