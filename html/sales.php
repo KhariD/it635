@@ -51,10 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //user logging in
         //display vehicles
 
-        echo "Showing Vehicles";
+        echo "Showing Unsold Vehicles";
         
         
-        $sql = "select * from vehicle";
+        $sql = "select * from unsold";
         $result = $conn->query($sql);
 
         echo "<table border='1'>
