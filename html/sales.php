@@ -35,8 +35,13 @@ else
 <body>
   <div class="veh">
     <div id="veh">   
-        <h1>Welcome Back!</h1>
+        <h1>Sales Representative Portal!</h1>
         <form action="sales.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                Show vehicles for sale!
+            </label>
+            <br>
             <button class="button button-block" name="veh" />Show Vehicles</button>
         </form>
     </div><!-- tab-content -->
