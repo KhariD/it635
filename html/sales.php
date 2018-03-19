@@ -221,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $commission = $com * $row['price'];
 
                 echo "<tr>";
-                echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $row1['date'] . "</td>";
                 echo "<td>" . $commission . "</td>";
                 echo "<td>" . $row['vin'] . "</td>";
                 echo "<td>" . $row['make'] . "</td>";
