@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <form action="sales.php" method="post" autocomplete="off">
             <br>
             <label>
-                Show Vehicle
+                Show a specific vehicle!
             </label>
             <br>
             <input type="text" name="showVeh" placeholder="enter vin"/>
@@ -175,6 +175,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   <div class="sales">
     <div id="sales">   
         <form action="sales.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                Show your sales!
+            </label>
+            <br>
             <button class="button button-block" name="salesButton" />Show Sales</button>
         </form>
     </div><!-- tab-content -->
