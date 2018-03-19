@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 Add New Vehicle!
             </label>
             <br>
-            <input type="text" name="vin" placeholder="Enter vin"/><br>
+            <input type="text" required name="vin" placeholder="Enter vin"/><br>
             <input type="text" name="make" placeholder="Enter make"/><br>
             <input type="text" name="model" placeholder="Enter model"/><br>
             <input type="text" name="year" placeholder="Enter year"/><br>

@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 Show a specific vehicle!
             </label>
             <br>
-            <input type="text" name="showVeh" placeholder="enter vin"/><br>
+            <input type="text" required name="showVeh" placeholder="enter vin"/><br>
             <button class="button button-block" name="showButton" />Show Vehicle</button>
         </form>
     </div><!-- tab-content -->
@@ -263,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 Book a sale!
             </label>
             <br>
-            <input type="text" name="vin" placeholder="Enter vin"/><br>
+            <input type="text" required name="vin" placeholder="Enter vin"/><br>
             <input type="text" name="date" placeholder="Enter date"/><br>
             <button class="button button-block" name="bookSale" />Sell Vehicle</button>
         </form>
