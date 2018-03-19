@@ -24,7 +24,7 @@ else {
     echo "First: ".$fname."<br>";
     echo "Last: ".$lname."<br>";
     echo "Phone #: ".$phone."<br>";
-    echo "Commission %: ".$com."<br>";
+    echo "Commission: ".$com."<br>";
 }
 ?>
 
