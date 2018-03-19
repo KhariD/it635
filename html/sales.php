@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //user logging in
         //display vehicles
 
-        $vin = $_POST['showVeh'];
+        $vin = $conn->escape_string($_POST['showVeh']);
         
         $sql = "select * from vehicle where vin = '$vin';";
         $result = $conn->query($sql);
