@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //user logging in
         //display vehicles
 
-        echo "Showing Unsold Vehicles";
+        echo "Showing Vehicles For Sale";
         
         
         $sql = "select * from unsold";
