@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 /* Displays user information and some useful messages */
-echo "DEALERSHIP OWNER<BR>";
+echo "<BR>DEALERSHIP OWNER<BR>";
 session_start();
 
 // Check if user is logged in using the session variable
@@ -53,3 +53,57 @@ else {
     </div><!-- tab-content -->
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{   
+    if (isset($_POST['addVeh'])) 
+    { 
+        $vin = $conn->escape_string($_POST['vin']);
+        $mk = $conn->escape_string($_POST['make']);
+        $md = $conn->escape_string($_POST['model']);
+        $yr = $conn->escape_string($_POST['year']);
+        $mi = $conn->escape_string($_POST['miles']);
+        $ty = $conn->escape_string($_POST['type']);
+        $co = $conn->escape_string($_POST['color']);
+        $tr = $conn->escape_string($_POST['trans']);
+        $pr = $conn->escape_string($_POST['price']);
+
+        //find out if vehicle exists
+        $sql = "select * from vehicle where vin = '$vin';";
+        $result = $conn->query($sql);
+        $result->fetch_assoc();
+
+        if($result->num_rows == 0 )
+        {
+            $sql = "insert into vehicle (vin, make, model, year, miles, type, color, trans, price)
+            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
+
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "<br>Vehicle Added successfully!<br>";
+            }
+            else
+            {
+                echo "<br>Error: ".$sql."<br>".$conn->error;
+            }
+
+            $sql = "insert into unsold (vin, make, model, year, miles, type, color, trans, price)
+            values ('$vin', '$mk', '$md', '$yr', '$mi', '$ty', '$co', '$tr', '$pr');";
+
+            if ($conn->query($sql) === TRUE)
+            {
+                echo "<br>:)<br>";
+            }
+            else
+            {
+                echo "<br>Error: ".$sql."<br>".$conn->error;
+            }
+        }
+        else
+        {
+            echo "<br>This vehicle exists already!<br>";
+        }
+    }
+}
+?>
