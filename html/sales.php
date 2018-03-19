@@ -303,6 +303,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     echo "<br>Error: ".$sql."<br>".$conn->error;
                 }
                 
+                $sql = "delete from unsold where vin = '$vin';";
+
+                if ($conn->query($sql) === TRUE)
+                {
+                    echo "<br>..2";
+                }
+                else
+                {
+                    echo "<br>Error: ".$sql."<br>".$conn->error;
+                }
+
                 $sql = "insert into sales (vin, user, date)
                 values ('$vin', '$user', '$dt');";
                 
