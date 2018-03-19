@@ -162,3 +162,83 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 ?>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="sales">
+    <div id="sales">   
+        <h1>Welcome Back!</h1>
+        <form action="sales.php" method="post" autocomplete="off">
+            <button class="button button-block" name="salesButton" />Show Sales</button>
+        </form>
+    </div><!-- tab-content -->
+</body>
+</html>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{   
+    if (isset($_POST['salesButton'])) 
+    { 
+        //user logging in
+        //display vehicles
+        
+        $sql = "select * from sales where user = '$user';";
+        $result = $conn->query($sql);
+
+        
+        if ($result->num_rows == 0 )
+        {
+            echo "No sales made yet";
+        }
+        else
+        {
+            echo "<table border='1'>
+            <tr>
+            <th>Date</th>
+            <th>Commission</th>            
+            <th>Vin</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Miles</th>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Trans</th>
+            <th>Price</th>
+            </tr>";
+
+            while($row1 = $result->fetch_assoc())
+            {
+                $sql = "select * from vehicle where vin = '".$row1['vin']."';";
+                $res = $conn->query($sql);
+
+                $row = $res->fetch_assoc()
+
+                $commission = $com * $row['price'];
+
+                echo "<tr>";
+                echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $commission . "</td>";
+                echo "<td>" . $row['vin'] . "</td>";
+                echo "<td>" . $row['make'] . "</td>";
+                echo "<td>" . $row['model'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
+                echo "<td>" . $row['miles'] . "</td>";
+                echo "<td>" . $row['type'] . "</td>";
+                echo "<td>" . $row['color'] . "</td>";
+                echo "<td>" . $row['trans'] . "</td>";
+                echo "<td>" . $row['price'] . "</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+
+        }
+    }
+}
+
+?>
