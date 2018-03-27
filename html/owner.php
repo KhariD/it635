@@ -288,9 +288,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             case "month":
                 echo "<br>Show by month";
-                echo time();
                 echo "<br>";
                 echo date("Y-m-d");
+                echo "<br>";
+                echo date("Y-m-d") - 365;
+                
                 break;
 
             case "";
