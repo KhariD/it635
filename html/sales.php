@@ -264,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             </label>
             <br>
             <input type="text" required name="vin" placeholder="Enter vin"/><br>
-            <input type="text" name="date" placeholder="Enter date"/><br>
+            <input type="date" required name="date" /><br>
             <button class="button button-block" name="bookSale" />Sell Vehicle</button>
         </form>
     </div><!-- tab-content -->
