@@ -290,9 +290,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 echo "<br>Show by month";
                 echo "<br>";
                 echo date("Y-m-d");
-                $date = strtotime("-1 year", time());
+                $date = strtotime("-1 month", time());
                 $var = date("Y-m-d", $date);
-                
                 echo "<br>";
                 echo $var;
 
