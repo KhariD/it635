@@ -2,7 +2,7 @@
 require 'db.php';
 
 /* Displays user information and some useful messages */
-echo "SALES REPRESENTATIVE<BR>";
+echo "<br>SALES REPRESENTATIVE<BR>";
 session_start();
 
 // Check if user is logged in using the session variable
