@@ -195,3 +195,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="sales">
+    <div id="sales">
+        <form action="owner.php" method="post" autocomplete="off">
+            <br>
+            <label>
+                View Sales
+            </label>
+            <br>
+            <input type="radio"  name="all" value="all" checked/>Show all sales<br>
+            <input type="radio" name="year" value="year"/>In the past year<br>
+            <input type="radio" name="month" value="month"/>In the past month<br>
+            <input type="radio" name="rep" value=""/>By sales rep:<input type="text" name="rep" placeholder="Enter usrname"/><br>
+            <button class="button button-block" name="show" />Show Sales</button>
+        </form>
+    </div><!-- tab-content -->
+</body>
+</html>
