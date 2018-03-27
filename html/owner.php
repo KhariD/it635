@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 break;
 
             case "month":
-                echo "<br>Show by year";
+                echo "<br>Show by month";
                 break;
 
             case "";
