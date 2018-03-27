@@ -240,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 break;
 
             case "";
-                echo "<br>Show by rep";
+                echo "<br>Show by rep ".$rep;
                 break;
         }
 
