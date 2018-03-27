@@ -408,7 +408,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 }
                 else
                 {
-                    echo "<br>Showing sales made by: <strong>".$fname." ".$lname."!!</strong><br>";
+                    echo "<br>Showing sales made by: <strong>".$rep."!!</strong><br>";
                     echo "<table border='1'>
                     <tr>
                     <th>Date</th>
