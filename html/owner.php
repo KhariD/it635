@@ -339,13 +339,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 break;
 
             case "month":
-                echo "<br>Show by month";
-                echo "<br>";
-                echo date("Y-m-d");
+                
+                echo "<br>Sales made in the past month";
+                $current = date("Y-m-d");
                 $date = strtotime("-1 month", time());
-                $var = date("Y-m-d", $date);
-                echo "<br>";
-                echo $var;
+                $last = date("Y-m-d", $date);  
+                
+                $sql = "select * from sales where date between '$last' and '$current'";;
+                $result = $conn->query($sql);
+
+                if ($result->num_rows == 0 )
+                {
+                    echo "<br>No sales made yet this month<br>";
+                }
+                else
+                {
+                    echo "<table border='1'>
+                    <tr>
+                    <th>Date</th>
+                    <th>User</th>            
+                    <th>Vin</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Miles</th>
+                    <th>Type</th>
+                    <th>Color</th>
+                    <th>Trans</th>
+                    <th>Price</th>
+                    </tr>";
+        
+                    while($row1 = $result->fetch_assoc())
+                    {
+                        $sql = "select * from vehicle where vin = '".$row1['vin']."';";
+                        $res = $conn->query($sql);
+        
+                        $row = $res->fetch_assoc();
+
+                        echo "<tr>";
+                        echo "<td>" . $row1['date'] . "</td>";
+                        echo "<td>" . $row1['user'] . "</td>";
+                        echo "<td>" . $row['vin'] . "</td>";
+                        echo "<td>" . $row['make'] . "</td>";
+                        echo "<td>" . $row['model'] . "</td>";
+                        echo "<td>" . $row['year'] . "</td>";
+                        echo "<td>" . $row['miles'] . "</td>";
+                        echo "<td>" . $row['type'] . "</td>";
+                        echo "<td>" . $row['color'] . "</td>";
+                        echo "<td>" . $row['trans'] . "</td>";
+                        echo "<td>" . $row['price'] . "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }
 
                 
                 break;
