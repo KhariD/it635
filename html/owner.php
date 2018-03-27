@@ -207,10 +207,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 View Sales
             </label>
             <br>
-            <input type="radio"  name="all" value="all" checked/>Show all sales<br>
-            <input type="radio" name="year" value="year"/>In the past year<br>
-            <input type="radio" name="month" value="month"/>In the past month<br>
-            <input type="radio" name="rep" value=""/>By sales rep:<input type="text" name="rep" placeholder="Enter usrname"/><br>
+            <input type="radio" name="sales" value="all" checked/>Show all sales<br>
+            <input type="radio" name="sales" value="year"/>In the past year<br>
+            <input type="radio" name="sales" value="month"/>In the past month<br>
+            <input type="radio" name="sales" value=""/>By sales rep:<input type="text" name="rep" placeholder="Enter usrname"/><br>
             <button class="button button-block" name="show" />Show Sales</button>
         </form>
     </div><!-- tab-content -->
