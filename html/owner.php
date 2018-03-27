@@ -292,7 +292,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 echo date("Y-m-d");
                 echo "<br>";
                 $var = date("Y-m-d") - 365;
-                echo strtotime($var);
+                $vas = strtotime($var);
+                echo date("Y-m-d", $vas);
 
                 
                 break;
