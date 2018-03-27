@@ -395,8 +395,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 break;
 
             case "";
-                
-                echo "<br>Show by rep ".$rep;
 
                 $sql = "select * from sales where user = '$rep';";
                 $result = $conn->query($sql);
@@ -404,7 +402,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 
                 if ($result->num_rows == 0 )
                 {
-                    echo "<br>No sales made yet<br>";
+                    echo "<br>No sales made yet by .$rep.<br>";
                 }
                 else
                 {
