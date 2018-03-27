@@ -33,7 +33,7 @@ else {
 <body>
   <div class="addR">
     <div id="addR">
-      <h1>Sales Representative Portal!</h1>   
+      <h1>Dealership Owner Portal!</h1>   
         <form action="owner.php" method="post" autocomplete="off">
             <br>
             <label>
