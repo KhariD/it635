@@ -283,7 +283,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             case "year":
                 
-                echo "<br>Show by year";
+                echo "<br>Sales made in the past year";
                 $current = date("Y-m-d");
                 $date = strtotime("-1 year", time());
                 $last = date("Y-m-d", $date);  
