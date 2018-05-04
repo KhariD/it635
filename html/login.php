@@ -24,7 +24,7 @@ else
 	   
 	$hash = $userArray['pass'];
 
-	echo "<br>DB hash: ".$pHash."<br>";
+	echo "<br>DB hash: ".$hash."<br>";
 	   
 	$pass = $_POST['password'];
 
