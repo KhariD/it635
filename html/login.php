@@ -5,30 +5,24 @@ session_start();
 
 // Escape email to protect against SQL injections
 $user = $conn->escape_string($_POST['user']);
-echo "1";
 $sql = "select * from users where user = '$user';";
-echo "2";
 $result = $conn->query($sql);
-echo "3";
 
-var_dump($result);
-
-if ( $result->num_rows == 0 )
+if ($result->num_rows == 0)
 {
 	// User doesn't exist
-    	echo "user doesn't exist".PHP_EOL;
+    echo "user doesn't exist".PHP_EOL;
 }
 else
 {
 	// User exists
-	
 	echo "<br>user exists<br>";
 		
 	$sql = "select * from users where user = '$user';";
 	$result = $conn->query($sql);
 	$userArray = $result->fetch_assoc();
 	   
-	$hash = $userArray['pass']
+	$hash = $userArray['pass'];
 
 	echo "<br>DB hash: ".$pHash."<br>";
 	   
