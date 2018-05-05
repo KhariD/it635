@@ -63,7 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $lname = $conn->escape_string($_POST['lname']);
         $phone = $conn->escape_string($_POST['phone']);
         $com = $conn->escape_string($_POST['com']);
-        $pass = $conn->escape_string($_POST['pass']);
+        $passwd = $conn->escape_string($_POST['pass']);
+
+        //hash password
+        $pass = password_hash($passwd, PASSWORD_DEFAULT);
         
 
         //find out if rep exists
