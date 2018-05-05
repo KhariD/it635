@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: Used_Cars
 -- ------------------------------------------------------
--- Server version	5.7.22-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -65,7 +65,7 @@ CREATE TABLE `reps` (
 
 LOCK TABLES `reps` WRITE;
 /*!40000 ALTER TABLE `reps` DISABLE KEYS */;
-INSERT INTO `reps` VALUES ('kd','Khari','Davis',1234567890,0.19),('kdavis','Khari','Davis',12345,0.12),('test','test','test',1234,0.12),('test123','1','1',1,1),('testRep','Kyle','Burnstein',1234555555,0.23);
+INSERT INTO `reps` VALUES ('kd','Khari','Davis',1234567890,0.19),('kdavis','Khari','Davis',12345,0.12),('khari','k','d',123,0.12),('test','test','test',1234,0.12),('test123','1','1',1,1),('testRep','Kyle','Burnstein',1234555555,0.23);
 /*!40000 ALTER TABLE `reps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +178,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('kd','1234'),('kdavis','1234'),('test','1234'),('test123','1'),('testOwner','1234'),('testRep','1234');
+INSERT INTO `users` VALUES ('kd','$2y$10$n6MQl2G82NCJikbzPrH6tOstwWPGWOT.FmqJ8q9kDAARP8XOb4rE.'),('kdavis','$2y$10$TY95yloFCOjoP19Nd7Hoe.7HJVwTrXSMgKioUIbTyy10Mi3NcvyAi'),('khari','$2y$10$uYf.X5kD.AXHiqpPpepUGOSbjlfxD2UZJUDCgp8NsJEHaYCpouROS'),('test','$2y$10$xQatL5WGeh0wo2s3GXPbnOPe3v55gIDwhincv9XdLAmyAsPK/6cLS'),('test123','$2y$10$qd0szVkGlqe1YRTFxNh09uSGIFiz.Z7NKUXr4cyrsyPX0fWUmBa.G'),('testOwner','$2y$10$F1fO1j.e6ahGQqUKKAx6LOmuuq83OR03dy2hf3MzsJjA1Hht6Z4Cm'),('testRep','$2y$10$Pcr9mGa79sFqPOYVic1DFuvOiQakZukBzik1eKwCLxUpJGSIq9Ih2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-28 20:22:12
+-- Dump completed on 2018-05-05  1:35:49
