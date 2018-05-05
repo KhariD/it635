@@ -1,23 +1,3 @@
-<?php
-/* Main page with two forms: sign up and log in */
-require 'db.php';
-session_start();
-//var_dump($_POST);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-   //var_dump($_POST);
-    
-    if (isset($_POST['login'])) 
-    { 
-        //user logging in
-        //var_dump($_POST);
-        require 'login.php';
-    
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <body>
@@ -45,3 +25,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 </body>
 </html>
+
+<?php
+/* Main page with two forms: sign up and log in */
+require 'db.php';
+session_start();
+//var_dump($_POST);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+   //var_dump($_POST);
+    
+    if (isset($_POST['login'])) 
+    { 
+        //user logging in
+        //var_dump($_POST);
+        require 'login.php';
+    
+    }
+}
+?>
+
