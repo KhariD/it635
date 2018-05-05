@@ -1,5 +1,4 @@
 <?php
-echo "hello!".PHP_EOL;
 session_start();
 /* User login process, checks if user exists and password is correct */
 
@@ -11,12 +10,12 @@ $result = $conn->query($sql);
 if ($result->num_rows == 0)
 {
 	// User doesn't exist
-    echo "user doesn't exist".PHP_EOL;
+    echo "<br>User Doesn't Exist<br>";
 }
 else
 {
 	// User exists
-	echo "<br>user exists<br>";
+	echo "<br>User Exists<br>";
 		
 	$sql = "select * from users where user = '$user';";
 	$result = $conn->query($sql);
@@ -24,11 +23,11 @@ else
 	   
 	$hash = $userArray['pass'];
 
-	echo "<br>DB hash: ".$hash."<br>";
+	//echo "<br>DB hash: ".$hash."<br>";
 	   
 	$pass = $_POST['password'];
 
-	echo "<br>Entered pass: ".$pass."<br>";	
+	//echo "<br>Entered pass: ".$pass."<br>";	
 
     	if (password_verify($pass, $hash))
     	{
@@ -86,7 +85,7 @@ else
     	}
     	else
 		{
-        	echo "You have entered wrong password, try again!".PHP_EOL;
+        	echo "<br>You have entered wrong password, try again!<br>";
     	}
 }
 ?>
