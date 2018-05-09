@@ -2,7 +2,7 @@
 
 echo "### Mysql Backup ###"
 
-FILE=Used_Cars_BACKUP.sql.`date + %y%m%d`
+FILE=Used_Cars_BACKUP.sql.'date "+%y%m%d"'
 DBSERVER=172.31.86.96
 DATABASE=Used_Cars
 USER=root
