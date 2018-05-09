@@ -1,5 +1,15 @@
-#!/bin/bash/expect
+#!/bin/sh
 
-mysql -u root -p
-expect "Enter password: "
-send "monkey"
+echo "### Mysql Backup ###"
+
+FILE=Used_Cars.sql.`date + "%Y%m%d"`
+DATABASE=Used_Cars
+USER=root
+PASS=monkey
+
+mysqldump --opt --protocol=TCP --user=${USER} --password=${PASS} ${DATABASE} > ${FILE}
+
+gzip $FILE
+
+echo "${FILE}.gz was created: "
+ls -l ${FILE}.gz
