@@ -3,7 +3,7 @@
 echo "### Mysql Backup ###"
 
 FILE=Used_Cars_BACKUP.sql.`date + "%y%m%d"`
-DBSERVER=127.0.0.1
+DBSERVER=172.31.86.96
 DATABASE=Used_Cars
 USER=root
 PASS=monkey
