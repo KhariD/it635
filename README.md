@@ -1,4 +1,5 @@
-# IT635
+## IT635
 
-Database Administration Project
-Khari Davis-Fletcher
+### Database Administration Project
+
+By: Khari Davis-Fletcher
