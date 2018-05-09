@@ -122,7 +122,7 @@ CREATE TABLE `sold` (
 
 LOCK TABLES `sold` WRITE;
 /*!40000 ALTER TABLE `sold` DISABLE KEYS */;
-INSERT INTO `sold` VALUES ('2','Ford','Focus',2002,160000,'Coupe','Blue','Manual',2500),('30498','Toyota','Prius',2007,34000,'Sedan','Orange','Automatic',13000),('32984','Hummer','H2',2005,56000,'SUV','Yellow','Manual',23),('4','Jeep','Cherokee',2013,66000,'SUV','Yellow','Manual',13000),('43989','Audi','A3',2008,89332,'Coupe','Silver','Manual',9000),('5','Honda','Accord',2003,189000,'Coupe','Red','Manual',3000);
+INSERT INTO `sold` VALUES ('2','Ford','Focus',2002,160000,'Coupe','Blue','Manual',2500),('30498','Toyota','Prius',2007,34000,'Sedan','Orange','Automatic',13000),('32984','Hummer','H2',2005,56000,'SUV','Yellow','Manual',23),('4','Jeep','Cherokee',2013,66000,'SUV','Yellow','Manual',13000),('43989','Audi','A3',2008,89332,'Coupe','Silver','Manual',9000),('49548','Honda','Odyssey',2013,87000,'SUV','Blue','Automatic',8000),('5','Honda','Accord',2003,189000,'Coupe','Red','Manual',3000);
 /*!40000 ALTER TABLE `sold` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `unsold` (
 
 LOCK TABLES `unsold` WRITE;
 /*!40000 ALTER TABLE `unsold` DISABLE KEYS */;
-INSERT INTO `unsold` VALUES ('1','Honda','Civic',2005,170000,'Sedan','Silver','Automatic',3000),('3','Tesla','Model S',2015,56000,'Sedan','Black','N/A',25000),('49548','Honda','Odyssey',2013,87000,'SUV','Blue','Automatic',8000);
+INSERT INTO `unsold` VALUES ('1','Honda','Civic',2005,170000,'Sedan','Silver','Automatic',3000),('1001','Chrysler','Sebring',2007,65300,'Coupe','Red','Manual',4500),('3','Tesla','Model S',2015,56000,'Sedan','Black','N/A',25000);
 /*!40000 ALTER TABLE `unsold` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +209,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES ('1','Honda','Civic',2005,170000,'Sedan','Silver','Automatic',3000),('2','Ford','Focus',2002,160000,'Coupe','Blue','Manual',2500),('3','Tesla','Model S',2015,56000,'Sedan','Black','N/A',25000),('30498','Toyota','Prius',2007,34000,'Sedan','Orange','Automatic',13000),('32984','Hummer','H2',2005,56000,'SUV','Yellow','Manual',23),('4','Jeep','Cherokee',2013,66000,'SUV','Yellow','Manual',13000),('43989','Audi','A3',2008,89332,'Coupe','Silver','Manual',9000),('49548','Honda','Odyssey',2013,87000,'SUV','Blue','Automatic',8000),('5','Honda','Accord',2003,189000,'Coupe','Red','Manual',3000);
+INSERT INTO `vehicle` VALUES ('1','Honda','Civic',2005,170000,'Sedan','Silver','Automatic',3000),('1001','Chrysler','Sebring',2007,65300,'Coupe','Red','Manual',4500),('2','Ford','Focus',2002,160000,'Coupe','Blue','Manual',2500),('3','Tesla','Model S',2015,56000,'Sedan','Black','N/A',25000),('30498','Toyota','Prius',2007,34000,'Sedan','Orange','Automatic',13000),('32984','Hummer','H2',2005,56000,'SUV','Yellow','Manual',23),('4','Jeep','Cherokee',2013,66000,'SUV','Yellow','Manual',13000),('43989','Audi','A3',2008,89332,'Coupe','Silver','Manual',9000),('49548','Honda','Odyssey',2013,87000,'SUV','Blue','Automatic',8000),('5','Honda','Accord',2003,189000,'Coupe','Red','Manual',3000);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -222,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-05  1:35:49
+-- Dump completed on 2018-05-09 19:46:18
