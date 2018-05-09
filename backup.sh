@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "yo"
-ls
-ls -latr
+
+mysql -u root -p
+expect "Enter password: "
+send "monkey"
