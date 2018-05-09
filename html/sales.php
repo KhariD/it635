@@ -59,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         echo "Showing Vehicles For Sale";
         
         
-        $sql = "select * from unsold";
+        //$sql = "select * from unsold";
+        $sql = "CALL getVehicles();";
         $result = $conn->query($sql);
 
         echo "<table border='1'>
